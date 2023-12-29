@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api1.apps.Api1Config',
     'api2.apps.Api2Config',
+    'api3.apps.Api3Config',
     'coreapi',
     'rest_framework'
 ]
@@ -90,9 +91,19 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '',
         
+    },
+    'dbapi3':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'api3',
+        'USER': 'root',
+        'PASSWORD': '123',
+        'HOST': '127.0.0.1',
+        'PORT': '',
+        
     }
 }
 DATABASE_ROUTERS = ['api2.routers.DatabaseRouter2']
+DATABASE_ROUTERS = ['api3.routers.DatabaseRouter2']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api1/', include('api1.urls')),
     path('api2/', include('api2.urls')),
+    path('api3/', include('api3.urls')),
     path('docs/', include_docs_urls(title='API 1 Documentation'))
 ]
