@@ -24,5 +24,6 @@ urlpatterns = [
     path('api2/', include('api2.urls')),
     path('api3/', include('api3.urls')),
     path('api4/', include('api4.urls')),
+    path('api5/', include('api5.urls')),
     path('docs/', include_docs_urls(title='API 1 Documentation'))
 ]
