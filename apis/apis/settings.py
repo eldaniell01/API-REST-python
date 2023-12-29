@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'api1.apps.Api1Config',
     'api2.apps.Api2Config',
     'api3.apps.Api3Config',
+    'api4.apps.Api4Config',
     'coreapi',
     'rest_framework'
 ]
