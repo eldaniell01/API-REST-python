@@ -42,8 +42,11 @@ INSTALLED_APPS = [
     'api3.apps.Api3Config',
     'api4.apps.Api4Config',
     'api5.apps.Api5Config',
+    'api6.apps.Api6Config',
     'coreapi',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -149,5 +152,36 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK ={
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    
+}
+
+SPECTACULAR_SETTINGS ={
+    'TITLE': 'API6',
+    'DESCRIPTION': 'ESTA ES UNA API',
+    'VERSION': '1.0.0',
+    'CONTACT': {
+        'name': 'eldaniell01',
+        'email': 'amontepequem@miumg.edu.gt'
+    },
+    'SWAGGER_UI_SETTINGS':{
+        'persistAuthorization': True,
+    },
+}
+
+SIMPLE_JWT = {
+    'ALGORITHM': 'HS256',
+    'AUTH_HEADER_TYPES':('Bearer',),
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'AUTH_TOKEN_CLASSES':('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+    'JTI_CLAIM': 'jti',
+    'TOKEN_USER_CLASS': 'rest_framework_simplejwt.models.TokenUser',
 }
