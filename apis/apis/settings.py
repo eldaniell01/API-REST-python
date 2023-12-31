@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'api4.apps.Api4Config',
     'api5.apps.Api5Config',
     'api6.apps.Api6Config',
+    'api7.apps.Api7Config',
     'coreapi',
     'rest_framework',
     'rest_framework.authtoken',
@@ -154,9 +155,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK ={
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     
