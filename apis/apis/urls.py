@@ -27,5 +27,6 @@ urlpatterns = [
     path('api5/', include('api5.urls')),
     path('api6/', include(('api6.urls', 'api6'), namespace='api6')),
     path('api7/', include('api7.urls')),
+    path('api8/', include('api8.urls')),
     path('docs/', include_docs_urls(title='API 1 Documentation'))
 ]

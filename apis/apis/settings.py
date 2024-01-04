@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'api5.apps.Api5Config',
     'api6.apps.Api6Config',
     'api7.apps.Api7Config',
+    'api8.apps.Api8Config',
     'coreapi',
     'rest_framework',
     'rest_framework.authtoken',
@@ -189,3 +190,6 @@ SIMPLE_JWT = {
     'JTI_CLAIM': 'jti',
     'TOKEN_USER_CLASS': 'rest_framework_simplejwt.models.TokenUser',
 }
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
