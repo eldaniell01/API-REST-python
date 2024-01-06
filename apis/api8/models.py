@@ -16,10 +16,12 @@ class Moto(models.Model):
         return f'{self.name}'
 
 class Repuesto(models.Model):
+    code = models.CharField(max_length=150)
     name = models.CharField(max_length=150)
-    description = models.TextField()
+    description = models.TextField(null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     stock = models.IntegerField()
+    state = models.BooleanField(default=False)
     image = models.ImageField(upload_to='repuestos', blank=True, null=True)
     id_proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
     id_moto=models.ForeignKey(Moto, on_delete=models.CASCADE)
