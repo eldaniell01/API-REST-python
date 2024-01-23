@@ -45,20 +45,26 @@ INSTALLED_APPS = [
     'api6.apps.Api6Config',
     'api7.apps.Api7Config',
     'api8.apps.Api8Config',
+    'api9.apps.Api9Config',
     'coreapi',
     'rest_framework',
     'rest_framework.authtoken',
     'drf_spectacular',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    
+    
 ]
 
 ROOT_URLCONF = 'apis.urls'
@@ -153,11 +159,22 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+    'http://0.0.0.0',
+    'http://localhost:5173'
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+
 REST_FRAMEWORK ={
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',

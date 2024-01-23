@@ -34,7 +34,7 @@ class CompanyView(View):
     def post(self, request):
         jd = json.loads(request.body)
         Company.objects.create(name=jd['name'], website=jd['website'], fundation=jd['fundation'])
-        data={'message':'completado'}
+        data={'message':'completado con exito'}
         return JsonResponse(data)
     
     def put(self, request, id):

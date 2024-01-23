@@ -27,6 +27,6 @@ class Repuesto(models.Model):
     id_moto=models.ForeignKey(Moto, on_delete=models.CASCADE)
     
     class Meta: 
-        ordering=('name',)
+        ordering=('-id',)
     def __str__(self):
         return f'{self.name}'
